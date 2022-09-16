@@ -18,7 +18,8 @@ public class Board : MonoBehaviour
 
     public float gemSpeed;
 
-    private MatchFinder matchFind;
+    [HideInInspector]
+    public MatchFinder matchFind;
 
     private void Awake()
     {
@@ -53,6 +54,14 @@ public class Board : MonoBehaviour
 
                 int gemToUse = Random.Range(0, gems.Length); //picks a random number
 
+                int iterations = 0; //an escape clause for the while(MatchesAt) code below
+                //checks for matches at board creation and prevents them from occurring 
+                while(MatchesAt(new Vector2Int(x,y), gems[gemToUse]) && iterations < 100)
+                {
+                    gemToUse = Random.Range(0, gems.Length);
+                    iterations++;
+                }
+
                 SpawnGem(new Vector2Int(x, y), gems[gemToUse]);
             }
         }
@@ -66,5 +75,25 @@ public class Board : MonoBehaviour
         allGems[pos.x, pos.y] = gem; //stores the location of the gem that just spawned
 
         gem.SetupGem(pos, this);
+    }
+
+    bool MatchesAt(Vector2Int posToCheck, Gem gemToCheck)
+    {
+        if(posToCheck.x > 1)
+        {
+            if (allGems[posToCheck.x - 1, posToCheck.y].type == gemToCheck.type && allGems[posToCheck.x - 2, posToCheck.y].type == gemToCheck.type)
+            {
+                return true;
+            }
+        }
+        if (posToCheck.y > 1)
+        {
+            if (allGems[posToCheck.x, posToCheck.y - 1].type == gemToCheck.type && allGems[posToCheck.x, posToCheck.y - 2].type == gemToCheck.type)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

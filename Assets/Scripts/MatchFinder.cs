@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq; //adds additional functions for lists
 
 public class MatchFinder : MonoBehaviour
 {
     private Board board;
+    public List<Gem> currentMatches = new List<Gem>(); //for keeping track of matched gems
 
     private void Awake()
     {
@@ -13,6 +15,8 @@ public class MatchFinder : MonoBehaviour
 
     public void FindAllMatches() //checks the board for all matches
     {
+        currentMatches.Clear(); //removes any already found matches
+
         for (int x = 0; x < board.width; x++)
         {
             for (int y = 0; y < board.height; y++)
@@ -29,9 +33,14 @@ public class MatchFinder : MonoBehaviour
                         {
                             if(leftGem.type == currentGem.type && rightGem.type == currentGem.type)
                             {
-                            currentGem.isMatched = true;
-                            leftGem.isMatched = true;
-                            rightGem.isMatched = true;
+                                currentGem.isMatched = true;
+                                leftGem.isMatched = true;
+                                rightGem.isMatched = true;
+
+                                //adds horizontal gems to the matched list
+                                currentMatches.Add(currentGem);
+                                currentMatches.Add(leftGem);
+                                currentMatches.Add(rightGem);
                             }
                         }
                     }
@@ -48,11 +57,21 @@ public class MatchFinder : MonoBehaviour
                                 currentGem.isMatched = true;
                                 aboveGem.isMatched = true;
                                 belowGem.isMatched = true;
+
+                                //adds vertical gems to the matched list
+                                currentMatches.Add(currentGem);
+                                currentMatches.Add(belowGem);
+                                currentMatches.Add(aboveGem);
                             }
                         }
                     }
                 }
             }
+        }
+
+        if (currentMatches.Count > 0)
+        {
+            currentMatches = currentMatches.Distinct().ToList(); //generates a second list of matches that removes duplicates
         }
     }
 
