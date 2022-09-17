@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &2844616620873145667
+--- !u!1001 &8321285333654853496
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -9,15 +9,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5683677593867981146, guid: 333bbbe9039a59741886f681aeaa4e3b, type: 3}
       propertyPath: type
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 5683677593867981146, guid: 333bbbe9039a59741886f681aeaa4e3b, type: 3}
-      propertyPath: destroyEffect
-      value: 
-      objectReference: {fileID: 1212281060671596918, guid: e4dc2d5f956557c43b81f59522882fec, type: 3}
     - target: {fileID: 5683677593867981147, guid: 333bbbe9039a59741886f681aeaa4e3b, type: 3}
       propertyPath: m_Name
-      value: Gem - Red Variant
+      value: Gem - Bomb
       objectReference: {fileID: 0}
     - target: {fileID: 5683677593867981148, guid: 333bbbe9039a59741886f681aeaa4e3b, type: 3}
       propertyPath: m_RootOrder
@@ -25,11 +21,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5683677593867981148, guid: 333bbbe9039a59741886f681aeaa4e3b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.06
+      value: 1.6
       objectReference: {fileID: 0}
     - target: {fileID: 5683677593867981148, guid: 333bbbe9039a59741886f681aeaa4e3b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.67
+      value: 4.4
       objectReference: {fileID: 0}
     - target: {fileID: 5683677593867981148, guid: 333bbbe9039a59741886f681aeaa4e3b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -66,22 +62,14 @@ PrefabInstance:
     - target: {fileID: 5683677593867981149, guid: 333bbbe9039a59741886f681aeaa4e3b, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 15913fd90bd479a45a568c3067a75c5d, type: 3}
-    - target: {fileID: 5683677593867981149, guid: 333bbbe9039a59741886f681aeaa4e3b, type: 3}
-      propertyPath: m_SortingLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5683677593867981149, guid: 333bbbe9039a59741886f681aeaa4e3b, type: 3}
-      propertyPath: m_SortingLayerID
-      value: 2086214581
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 21300000, guid: d1c82e015b38d4448bc1ba5e3eff90fa, type: 3}
     - target: {fileID: 8483035653194586201, guid: 333bbbe9039a59741886f681aeaa4e3b, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 0.8102564
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8483035653194586201, guid: 333bbbe9039a59741886f681aeaa4e3b, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 0.9358974
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 333bbbe9039a59741886f681aeaa4e3b, type: 3}

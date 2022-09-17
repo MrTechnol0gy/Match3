@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: type
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5683677593867981146, guid: 333bbbe9039a59741886f681aeaa4e3b, type: 3}
+      propertyPath: destroyEffect
+      value: 
+      objectReference: {fileID: 7245766015775113031, guid: b8ff6790ae832284d9bb127d817922c7, type: 3}
     - target: {fileID: 5683677593867981147, guid: 333bbbe9039a59741886f681aeaa4e3b, type: 3}
       propertyPath: m_Name
       value: Gem - Green Variant
@@ -65,11 +69,11 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: d184668e3ca69674d8a20a99d14eb1d2, type: 3}
     - target: {fileID: 5683677593867981149, guid: 333bbbe9039a59741886f681aeaa4e3b, type: 3}
       propertyPath: m_SortingLayer
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5683677593867981149, guid: 333bbbe9039a59741886f681aeaa4e3b, type: 3}
       propertyPath: m_SortingLayerID
-      value: 0
+      value: 2086214581
       objectReference: {fileID: 0}
     - target: {fileID: 8483035653194586201, guid: 333bbbe9039a59741886f681aeaa4e3b, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x

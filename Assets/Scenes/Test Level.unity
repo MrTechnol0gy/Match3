@@ -278,7 +278,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: 0f288df500000000b51b597caf76b6e9
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -381,6 +381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e7b029bacd6e304881ba25ca5a1e2f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentMatches: []
 --- !u!4 &1186219055
 Transform:
   m_ObjectHideFlags: 0
@@ -435,6 +436,10 @@ MonoBehaviour:
   - {fileID: 7609501268738427929, guid: 5e85fd665a416814f9067d771c7648cd, type: 3}
   - {fileID: 875109849286155796, guid: bfc40abd869518b439f6bfabf9815b9d, type: 3}
   gemSpeed: 7
+  matchFind: {fileID: 0}
+  currentState: 1
+  bomb: {fileID: 4439245507133654562, guid: b4b1ddfa4a9244b449e7dfd7441d648f, type: 3}
+  bombChance: 2
 --- !u!4 &1955238401
 Transform:
   m_ObjectHideFlags: 0
