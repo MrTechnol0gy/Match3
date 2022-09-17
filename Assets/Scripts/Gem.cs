@@ -26,7 +26,9 @@ public class Gem : MonoBehaviour
     public bool isMatched;
     private Vector2Int previousPos;
 
-    public GameObject destroyEffect; 
+    public GameObject destroyEffect;
+
+    public int blastSize = 2;   //bomb explosion size
 
     // Start is called before the first frame update
     void Start()

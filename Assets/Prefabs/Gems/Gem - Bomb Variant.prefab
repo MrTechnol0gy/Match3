@@ -11,9 +11,13 @@ PrefabInstance:
       propertyPath: type
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 5683677593867981146, guid: 333bbbe9039a59741886f681aeaa4e3b, type: 3}
+      propertyPath: destroyEffect
+      value: 
+      objectReference: {fileID: 4901216556411318523, guid: 335bc9ae6312bab4293f7798ad41aed8, type: 3}
     - target: {fileID: 5683677593867981147, guid: 333bbbe9039a59741886f681aeaa4e3b, type: 3}
       propertyPath: m_Name
-      value: Gem - Bomb
+      value: Gem - Bomb Variant
       objectReference: {fileID: 0}
     - target: {fileID: 5683677593867981148, guid: 333bbbe9039a59741886f681aeaa4e3b, type: 3}
       propertyPath: m_RootOrder
