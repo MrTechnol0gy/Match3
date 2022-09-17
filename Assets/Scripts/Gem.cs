@@ -47,8 +47,11 @@ public class Gem : MonoBehaviour
         if (mousePressed && Input.GetMouseButtonUp(0))
         {
             mousePressed = false; //prevents multiple calls once the mouse is pressed and released
-            finalTouchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            CalculateAngle();
+            if (board.currentState == Board.BoardState.move)
+            {
+                finalTouchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                CalculateAngle();
+            }
         }
     }
 
@@ -60,8 +63,11 @@ public class Gem : MonoBehaviour
 
     private void OnMouseDown()
     {
-        firstTouchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); //converts the mouse position to a location within the world using the camera
-        mousePressed = true;
+        if (board.currentState == Board.BoardState.move)
+        {
+            firstTouchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); //converts the mouse position to a location within the world using the camera
+            mousePressed = true;
+        }
     }
 
     private void CalculateAngle()
@@ -113,6 +119,8 @@ public class Gem : MonoBehaviour
 
     public IEnumerator CheckMoveCo()
     {
+        board.currentState = Board.BoardState.wait; //sets board state to wait in order to prevent player making moves during the board change state
+
         yield return new WaitForSeconds(.5f);
 
         board.matchFind.FindAllMatches();
@@ -126,6 +134,10 @@ public class Gem : MonoBehaviour
 
                 board.allGems[posIndex.x, posIndex.y] = this;
                 board.allGems[otherGem.posIndex.x, otherGem.posIndex.y] = otherGem;
+
+                yield return new WaitForSeconds(.5f);
+
+                board.currentState = Board.BoardState.move; //sets board state to move in order to allow the player to make moves again
             }
             else
             {
