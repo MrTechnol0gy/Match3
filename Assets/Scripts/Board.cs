@@ -96,4 +96,56 @@ public class Board : MonoBehaviour
 
         return false;
     }
+
+    private void DestroyMatchedGemAt(Vector2Int pos)
+    {
+        if (allGems[pos.x, pos.y] != null) //checks to see if the gem exists
+        {
+            if (allGems[pos.x, pos.y].isMatched)
+            {
+                Destroy(allGems[pos.x, pos.y].gameObject);
+                allGems[pos.x, pos.y] = null; //removes references to the destroyed gems
+            }
+        }
+    }
+
+    public void DestroyMatches()
+    {
+        for(int i = 0; i < matchFind.currentMatches.Count; i++)
+        {
+            if(matchFind.currentMatches[i] != null)
+            {
+                DestroyMatchedGemAt(matchFind.currentMatches[i].posIndex);
+            }
+        }
+
+        StartCoroutine(DecreaseRowCo());
+    }
+
+    private IEnumerator DecreaseRowCo()
+    {
+        yield return new WaitForSeconds(.2f); //puts a delay after gems are destroyed before gems fall to fill spaces
+
+        int nullCounter = 0;
+
+        for (int x = 0; x < width; x++)
+        {
+            for (int y = 0; y < height; y++)
+            {
+                if (allGems[x,y] == null)
+                {
+                    nullCounter++;
+                }
+                else if (nullCounter > 0)
+                {
+                    allGems[x, y].posIndex.y -= nullCounter;
+                    yield return new WaitForSeconds(.005f); //adds a slight delay between each gem falling to fill spaces below
+                    allGems[x, y - nullCounter] = allGems[x, y];
+                    allGems[x, y] = null;
+                }
+            }
+
+            nullCounter = 0;
+        }
+    }
 }
