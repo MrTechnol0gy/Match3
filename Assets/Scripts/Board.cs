@@ -45,6 +45,12 @@ public class Board : MonoBehaviour
     private void Update()
     {
         //matchFind.FindAllMatches();
+
+        //checks for a keypress and calls the ShuffleBoard function
+        if(Input.GetKeyDown(KeyCode.S))
+        {
+            ShuffleBoard();
+        }
     }
 
     private void Setup()
@@ -223,6 +229,47 @@ public class Board : MonoBehaviour
         foreach(Gem ge in foundGems)
         {
             Destroy(ge.gameObject);
+        }
+    }
+
+    public void ShuffleBoard()
+    {
+        if (currentState != BoardState.wait)
+        {
+            currentState = BoardState.wait;
+
+            List<Gem> gemsFromBoard = new List<Gem>();
+
+            for (int x = 0; x < width; x++)
+            {
+                for (int y = 0; y < height; y++)
+                {
+                    gemsFromBoard.Add(allGems[x, y]);
+                    allGems[x, y] = null;
+                }
+            }
+
+            for (int x = 0; x < width; x++)
+            {
+                for (int y = 0; y < height; y++)
+                {
+                    int gemToUse = Random.Range(0, gemsFromBoard.Count);
+
+                    int iterations = 0;
+
+                    while(MatchesAt(new Vector2Int(x, y), gemsFromBoard[gemToUse]) && iterations < 100 && gemsFromBoard.Count > 1)
+                    {
+                        gemToUse = Random.Range(0, gemsFromBoard.Count);
+                        iterations++;
+                    }
+
+                    gemsFromBoard[gemToUse].SetupGem(new Vector2Int(x, y), this);
+                    allGems[x, y] = gemsFromBoard[gemToUse];
+                    gemsFromBoard.RemoveAt(gemToUse);
+                }
+            }
+
+            StartCoroutine(FillBoardCo());
         }
     }
 }
