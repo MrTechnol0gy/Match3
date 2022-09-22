@@ -30,6 +30,9 @@ public class Board : MonoBehaviour
     [HideInInspector]
     public RoundManager roundMan;
 
+    private float bonusMulti;
+    public float bonusAmount = .5f;
+
     private void Awake()
     {
         matchFind = FindObjectOfType<MatchFinder>(); //finds the hierarchy matchfinding item
@@ -188,6 +191,8 @@ public class Board : MonoBehaviour
 
         if(matchFind.currentMatches.Count > 0)
         {
+            bonusMulti++; //increase the bonus multiplier
+
             yield return new WaitForSeconds(.25f); //creates a small delay before gems fill the board
             DestroyMatches();
         }
@@ -195,6 +200,8 @@ public class Board : MonoBehaviour
         {
             yield return new WaitForSeconds(.5f);
             currentState = BoardState.move;
+
+            bonusMulti = 0f; //resets the bonus multiplier
         }
     }
 
@@ -282,5 +289,11 @@ public class Board : MonoBehaviour
     public void ScoreCheck(Gem gemToCheck)
     {
         roundMan.currentScore += gemToCheck.scoreValue;
+
+        if(bonusMulti > 0)
+        {
+            float bonusToAdd = gemToCheck.scoreValue * bonusMulti * bonusAmount; //calculates the amount of bonus points earned
+            roundMan.currentScore += Mathf.RoundToInt(bonusToAdd); //adds the bonus amount to the score and converts it back into a readable integer
+        }
     }
 }
