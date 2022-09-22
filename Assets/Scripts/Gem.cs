@@ -30,6 +30,8 @@ public class Gem : MonoBehaviour
 
     public int blastSize = 2;   //bomb explosion size
 
+    public int scoreValue = 10; //gem points value
+
     // Start is called before the first frame update
     void Start()
     {
@@ -51,7 +53,7 @@ public class Gem : MonoBehaviour
         if (mousePressed && Input.GetMouseButtonUp(0))
         {
             mousePressed = false; //prevents multiple calls once the mouse is pressed and released
-            if (board.currentState == Board.BoardState.move)
+            if (board.currentState == Board.BoardState.move && board.roundMan.roundTime > 0) //prevents movement of gems after the round ends
             {
                 finalTouchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 CalculateAngle();
@@ -67,7 +69,7 @@ public class Gem : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (board.currentState == Board.BoardState.move)
+        if (board.currentState == Board.BoardState.move && board.roundMan.roundTime > 0) //checks to see if the player is allowed to move and if there's still time left in the round
         {
             firstTouchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); //converts the mouse position to a location within the world using the camera
             mousePressed = true;
