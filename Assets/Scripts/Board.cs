@@ -33,10 +33,14 @@ public class Board : MonoBehaviour
     private float bonusMulti;
     public float bonusAmount = .5f;
 
+    private BoardLayout boardLayout;
+    private Gem[,] layoutStore;
+
     private void Awake()
     {
         matchFind = FindObjectOfType<MatchFinder>(); //finds the hierarchy matchfinding item
         roundMan = FindObjectOfType<RoundManager>();
+        boardLayout = GetComponent<BoardLayout>();
     }
 
     // Start is called before the first frame update
@@ -44,9 +48,10 @@ public class Board : MonoBehaviour
     {
         allGems = new Gem[width, height];
 
+        layoutStore = new Gem[width, height];
+
         Setup();
 
-        
     }
 
     private void Update()
@@ -62,6 +67,11 @@ public class Board : MonoBehaviour
 
     private void Setup()
     {
+        if(boardLayout != null)
+        {
+            layoutStore = boardLayout.GetLayout();
+        }
+
         for(int x = 0; x < width; x++)
         {
             for(int y = 0; y < height; y++)
@@ -71,17 +81,25 @@ public class Board : MonoBehaviour
                 bgTile.transform.parent = transform;
                 bgTile.name = "BG Tile - " + x + ", " + y; //names the background tiles in the hierarchy based on their location
 
-                int gemToUse = Random.Range(0, gems.Length); //picks a random number
-
-                int iterations = 0; //an escape clause for the while(MatchesAt) code below
-                //checks for matches at board creation and prevents them from occurring 
-                while(MatchesAt(new Vector2Int(x,y), gems[gemToUse]) && iterations < 100)
+                if (layoutStore[x, y] != null) //checks for a custom layout
                 {
-                    gemToUse = Random.Range(0, gems.Length);
-                    iterations++;
+                    SpawnGem(new Vector2Int(x, y), layoutStore[x, y]); //spawns the gems from the custom layout
                 }
+                else
+                {
 
-                SpawnGem(new Vector2Int(x, y), gems[gemToUse]);
+                    int gemToUse = Random.Range(0, gems.Length); //picks a random number
+
+                    int iterations = 0; //an escape clause for the while(MatchesAt) code below
+                                        //checks for matches at board creation and prevents them from occurring 
+                    while (MatchesAt(new Vector2Int(x, y), gems[gemToUse]) && iterations < 100)
+                    {
+                        gemToUse = Random.Range(0, gems.Length);
+                        iterations++;
+                    }
+
+                    SpawnGem(new Vector2Int(x, y), gems[gemToUse]);
+                }
             }
         }
     } 
