@@ -3051,3 +3051,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2112649321}
   m_CullTransparentMesh: 1
+--- !u!1001 &5175922201082729759
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5175922201716627734, guid: 570ef0adb9c71dc49bb6b942cad8b11d, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5175922201716627734, guid: 570ef0adb9c71dc49bb6b942cad8b11d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.0003495
+      objectReference: {fileID: 0}
+    - target: {fileID: 5175922201716627734, guid: 570ef0adb9c71dc49bb6b942cad8b11d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.0536132
+      objectReference: {fileID: 0}
+    - target: {fileID: 5175922201716627734, guid: 570ef0adb9c71dc49bb6b942cad8b11d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.07329164
+      objectReference: {fileID: 0}
+    - target: {fileID: 5175922201716627734, guid: 570ef0adb9c71dc49bb6b942cad8b11d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5175922201716627734, guid: 570ef0adb9c71dc49bb6b942cad8b11d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5175922201716627734, guid: 570ef0adb9c71dc49bb6b942cad8b11d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5175922201716627734, guid: 570ef0adb9c71dc49bb6b942cad8b11d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5175922201716627734, guid: 570ef0adb9c71dc49bb6b942cad8b11d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5175922201716627734, guid: 570ef0adb9c71dc49bb6b942cad8b11d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5175922201716627734, guid: 570ef0adb9c71dc49bb6b942cad8b11d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5175922201716627736, guid: 570ef0adb9c71dc49bb6b942cad8b11d, type: 3}
+      propertyPath: m_Name
+      value: SFX Manager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 570ef0adb9c71dc49bb6b942cad8b11d, type: 3}
