@@ -8,8 +8,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 5683677593867981146, guid: 333bbbe9039a59741886f681aeaa4e3b, type: 3}
+      propertyPath: type
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5683677593867981146, guid: 333bbbe9039a59741886f681aeaa4e3b, type: 3}
       propertyPath: scoreValue
-      value: 50
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5683677593867981146, guid: 333bbbe9039a59741886f681aeaa4e3b, type: 3}
       propertyPath: destroyEffect
@@ -17,7 +21,7 @@ PrefabInstance:
       objectReference: {fileID: 1043436947029459482, guid: ffa2e486f941d954cae0a35afa868144, type: 3}
     - target: {fileID: 5683677593867981147, guid: 333bbbe9039a59741886f681aeaa4e3b, type: 3}
       propertyPath: m_Name
-      value: Stone
+      value: Stone Variant
       objectReference: {fileID: 0}
     - target: {fileID: 5683677593867981148, guid: 333bbbe9039a59741886f681aeaa4e3b, type: 3}
       propertyPath: m_RootOrder
