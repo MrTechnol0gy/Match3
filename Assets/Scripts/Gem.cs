@@ -40,7 +40,7 @@ public class Gem : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {        
         if (Vector2.Distance(transform.position, posIndex) > .01f)
         {
             transform.position = Vector2.Lerp(transform.position, posIndex, board.gemSpeed * Time.deltaTime);
@@ -52,6 +52,7 @@ public class Gem : MonoBehaviour
         }
         if (mousePressed && Input.GetMouseButtonUp(0))
         {
+            Cursor.visible = true; //sets the cursor to visible once the mouse has been let go
             mousePressed = false; //prevents multiple calls once the mouse is pressed and released
             if (board.currentState == Board.BoardState.move && board.roundMan.roundTime > 0) //prevents movement of gems after the round ends
             {
@@ -73,6 +74,7 @@ public class Gem : MonoBehaviour
         {
             firstTouchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); //converts the mouse position to a location within the world using the camera
             mousePressed = true;
+            Cursor.visible = false; //sets the cursor to be invisible for the duration of the press
         }
     }
 
