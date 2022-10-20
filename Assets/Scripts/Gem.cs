@@ -20,7 +20,7 @@ public class Gem : MonoBehaviour
 
     private Gem otherGem;
 
-    public enum GemType { blue, green, red, yellow, purple, bomb, stone}
+    public enum GemType { blue, green, red, yellow, purple, bomb, stone, shield}
     public GemType type;
 
     public bool isMatched;
