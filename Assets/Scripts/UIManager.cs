@@ -8,7 +8,8 @@ using System;
 public class UIManager : MonoBehaviour
 {
 
-    public TMP_Text timeText;
+    public TMP_Text turnsUsedText;
+    public TMP_Text turnsLeftText;
     public TMP_Text scoreText;
 
     public TMP_Text winScore;

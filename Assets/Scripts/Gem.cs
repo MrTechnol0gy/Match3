@@ -32,10 +32,19 @@ public class Gem : MonoBehaviour
 
     public int scoreValue = 10; //gem points value
 
+    private UIManager uiMan;
+        
+    void Awake()
+    {
+        uiMan = FindObjectOfType<UIManager>();        
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-
+        GameObject roundTurn = GameObject.Find("RoundTurn");
+        RoundManager roundManager = roundTurn.GetComponent<RoundManager>();
+        roundManager.roundTurn = 0;        
     }
 
     // Update is called once per frame
@@ -54,7 +63,7 @@ public class Gem : MonoBehaviour
         {
             Cursor.visible = true; //sets the cursor to visible once the mouse has been let go
             mousePressed = false; //prevents multiple calls once the mouse is pressed and released
-            if (board.currentState == Board.BoardState.move && board.roundMan.roundTime > 0) //prevents movement of gems after the round ends
+            if (board.currentState == Board.BoardState.move && board.roundMan.roundTurn > 0) //prevents movement of gems after the round ends
             {
                 finalTouchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 CalculateAngle();
@@ -70,7 +79,7 @@ public class Gem : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (board.currentState == Board.BoardState.move && board.roundMan.roundTime > 0) //checks to see if the player is allowed to move and if there's still time left in the round
+        if (board.currentState == Board.BoardState.move && board.roundMan.roundTurn > 0) //checks to see if the player is allowed to move and if there's still time left in the round
         {
             firstTouchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); //converts the mouse position to a location within the world using the camera
             mousePressed = true;
@@ -143,6 +152,9 @@ public class Gem : MonoBehaviour
 
                 board.allGems[posIndex.x, posIndex.y] = this;
                 board.allGems[otherGem.posIndex.x, otherGem.posIndex.y] = otherGem;
+
+                //uiMan.turnsUsedText.text = roundTurn--;
+                roundTurn--;
 
                 yield return new WaitForSeconds(.5f);
 
