@@ -75,6 +75,7 @@ public class Gem : MonoBehaviour
             firstTouchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); //converts the mouse position to a location within the world using the camera
             mousePressed = true;
             Cursor.visible = false; //sets the cursor to be invisible for the duration of the press
+            SFXManager.instance.PlayGemSelect(); //plays sfx when a gem is clicked
         }
     }
 

@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class SFXManager : MonoBehaviour
 {
@@ -11,7 +13,7 @@ public class SFXManager : MonoBehaviour
         instance = this;
     }
 
-    public AudioSource gemSound, explodeSound, stoneSound, roundOverSound;
+    public AudioSource gemSound, explodeSound, stoneSound, roundOverSound, gemSelect;
 
     public void PlayGemBreak()
     {
@@ -40,5 +42,13 @@ public class SFXManager : MonoBehaviour
     public void PlayRoundOver()
     {        
         roundOverSound.Play(); //plays the sound
+    }
+    public void PlayGemSelect()
+    {
+        gemSelect.Stop();
+
+        gemSelect.pitch = Random.Range(.8f, 1.2f);
+
+        gemSelect.Play();
     }
 }
