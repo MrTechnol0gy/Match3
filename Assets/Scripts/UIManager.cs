@@ -25,7 +25,7 @@ public class UIManager : MonoBehaviour
 
     private void Awake()
     {
-        theBoard = FindObjectOfType<Board>();
+        theBoard = FindObjectOfType<Board>(); //locates the Board script
     }
 
     // Start is called before the first frame update
