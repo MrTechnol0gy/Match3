@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class RoundManager : MonoBehaviour
 {
 
-    public float roundTurn = 15;
+    public float roundTime = 60f;
     private UIManager uiMan;
 
     private bool endingRound = false;
@@ -28,13 +28,13 @@ public class RoundManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(roundTurn > 0)
+        if(roundTime > 0)
         {
-            roundTurn -= Time.deltaTime;
+            roundTime -= Time.deltaTime; //runs time down so long as there is time left in the round
 
-            if(roundTurn <= 0) //if turns runs out, prevents turns from going into negative numbers
+            if(roundTime <= 0) //if turns runs out, prevents turns from going into negative numbers
             {
-                roundTurn = 0; 
+                roundTime = 0; 
 
                 endingRound = true;
                 
@@ -47,7 +47,7 @@ public class RoundManager : MonoBehaviour
             endingRound = false;
         }
 
-        //uiMan.turnsUsedText.text = roundTurn--; //changes the value in our time value UI element
+        uiMan.timeText.text = roundTime.ToString("0.0" + "s"); //changes the value in our time value UI element
 
         displayScore = Mathf.Lerp(displayScore, currentScore, scoresSpeed * Time.deltaTime); //gradually increases the score over time, instead of instantly
         uiMan.scoreText.text = displayScore.ToString("0"); //displays the score as a whole number

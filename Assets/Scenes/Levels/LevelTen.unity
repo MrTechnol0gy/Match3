@@ -1467,6 +1467,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: TryAgain
       objectReference: {fileID: 0}
+    - target: {fileID: 5907808437327435588, guid: a16b8ee496c6c9f449eec017ec6716ee, type: 3}
+      propertyPath: m_Name
+      value: Time Remain Value
+      objectReference: {fileID: 0}
     - target: {fileID: 5907808438189774929, guid: a16b8ee496c6c9f449eec017ec6716ee, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1562,6 +1566,14 @@ PrefabInstance:
     - target: {fileID: 5907808438189774957, guid: a16b8ee496c6c9f449eec017ec6716ee, type: 3}
       propertyPath: m_Name
       value: UI Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5907808438277668209, guid: a16b8ee496c6c9f449eec017ec6716ee, type: 3}
+      propertyPath: m_Name
+      value: Time Remain Label
+      objectReference: {fileID: 0}
+    - target: {fileID: 5907808438277668211, guid: a16b8ee496c6c9f449eec017ec6716ee, type: 3}
+      propertyPath: m_text
+      value: 'Time Left:'
       objectReference: {fileID: 0}
     - target: {fileID: 5907808438904683761, guid: a16b8ee496c6c9f449eec017ec6716ee, type: 3}
       propertyPath: m_IsActive
