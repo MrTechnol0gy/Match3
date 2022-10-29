@@ -8,9 +8,10 @@ using System;
 public class UIManager : MonoBehaviour
 {
 
-    public TMP_Text timeText;    
+    public TMP_Text timeText;
+    public TMP_Text turnText; //TURN BASED
     public TMP_Text scoreText;
-
+    
     public TMP_Text winScore;
     public TMP_Text winText;
     public GameObject winStars1, winStars2, winStars3;
@@ -25,7 +26,7 @@ public class UIManager : MonoBehaviour
 
     private void Awake()
     {
-        theBoard = FindObjectOfType<Board>(); //locates the Board script
+        theBoard = FindObjectOfType<Board>(); 
     }
 
     // Start is called before the first frame update
@@ -33,7 +34,7 @@ public class UIManager : MonoBehaviour
     {
         winStars1.SetActive(false);
         winStars2.SetActive(false);
-        winStars3.SetActive(false);
+        winStars3.SetActive(false);        
     }
 
     // Update is called once per frame

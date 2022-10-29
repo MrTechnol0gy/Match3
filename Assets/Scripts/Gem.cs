@@ -20,22 +20,30 @@ public class Gem : MonoBehaviour
 
     private Gem otherGem;
 
-    public enum GemType { blue, green, red, yellow, purple, bomb, stone, shield}
+    public enum GemType { blue, green, red, yellow, purple, bomb, stone, shield, heart}
     public GemType type;
 
     public bool isMatched;
     private Vector2Int previousPos;
 
     public GameObject destroyEffect;
-
+    
     public int blastSize = 2;   //bomb explosion size
 
     public int scoreValue = 10; //gem points value
-       
+
+    //private RoundManager roundMan; //TURN BASED
+    //private int roundTurn = 0; //TURN BASED; FOR TESTING
+           
+    //void Awake()
+    //{
+    //    roundMan = GetComponent<RoundManager>();        
+    //}
+
     // Start is called before the first frame update
     void Start()
     {
-              
+        
     }
 
     // Update is called once per frame
@@ -152,6 +160,11 @@ public class Gem : MonoBehaviour
             {
                 board.DestroyMatches();
             }
+            //put TURN BASED counter here
+            //Debug.Log(roundMan.roundTurn);
+            //Debug.Log("The round is " + roundTurn);
+            //roundTurn--; //TURN BASED
+            //Debug.Log("The round is " + roundTurn);
         }
     }
 

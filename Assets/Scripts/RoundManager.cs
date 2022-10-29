@@ -7,10 +7,13 @@ public class RoundManager : MonoBehaviour
 {
 
     public float roundTime = 60f;
+
+    //public float roundTurn = 0; //TURN BASED
+
     private UIManager uiMan;
+    private Board board;    
 
     private bool endingRound = false;
-    private Board board;
 
     public int currentScore;
     public float displayScore;
@@ -22,7 +25,7 @@ public class RoundManager : MonoBehaviour
     void Awake()
     {
         uiMan = FindObjectOfType<UIManager>();
-        board = FindObjectOfType<Board>();
+        board = FindObjectOfType<Board>();        
     }
 
     // Update is called once per frame
@@ -40,6 +43,13 @@ public class RoundManager : MonoBehaviour
                 
             }
         }
+        //TURN BASED
+        //if(roundTurn <= 0)
+        //{
+        //    roundTurn = 0;
+
+        //    endingRound = true;
+        //}
 
         if(endingRound && board.currentState == Board.BoardState.move)
         {
@@ -48,6 +58,7 @@ public class RoundManager : MonoBehaviour
         }
 
         uiMan.timeText.text = roundTime.ToString("0.0" + "s"); //changes the value in our time value UI element
+        //uiMan.turnText.text = roundTurn.ToString("0"); //TURN BASED
 
         displayScore = Mathf.Lerp(displayScore, currentScore, scoresSpeed * Time.deltaTime); //gradually increases the score over time, instead of instantly
         uiMan.scoreText.text = displayScore.ToString("0"); //displays the score as a whole number
