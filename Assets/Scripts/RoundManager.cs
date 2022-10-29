@@ -8,7 +8,7 @@ public class RoundManager : MonoBehaviour
 
     public float roundTime = 60f;
 
-    //public float roundTurn = 0; //TURN BASED
+    public float roundTurn = 0; //TURN BASED
 
     private UIManager uiMan;
     private Board board;    

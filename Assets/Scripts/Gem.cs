@@ -32,13 +32,16 @@ public class Gem : MonoBehaviour
 
     public int scoreValue = 10; //gem points value
 
-    //private RoundManager roundMan; //TURN BASED
-    //private int roundTurn = 0; //TURN BASED; FOR TESTING
+    private RoundManager roundMan; //TURN BASED
+    private UIManager UIMan; //TURN BASED
+    public float roundTurn; //TURN BASED    
            
-    //void Awake()
-    //{
-    //    roundMan = GetComponent<RoundManager>();        
-    //}
+    void Awake()
+    {
+        roundMan = GetComponent<RoundManager>(); //TURN BASED
+        UIMan = GetComponent<UIManager>(); //TURN BASED
+        roundTurn = roundMan.roundTurn; //TURN BASED        
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -161,10 +164,10 @@ public class Gem : MonoBehaviour
                 board.DestroyMatches();
             }
             //put TURN BASED counter here
-            //Debug.Log(roundMan.roundTurn);
-            //Debug.Log("The round is " + roundTurn);
-            //roundTurn--; //TURN BASED
-            //Debug.Log("The round is " + roundTurn);
+            Debug.Log(roundMan.roundTurn);
+            Debug.Log("The round is " + roundTurn);
+            roundTurn--; //TURN BASED
+            Debug.Log("The round is " + roundTurn);
         }
     }
 
