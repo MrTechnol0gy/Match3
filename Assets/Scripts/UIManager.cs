@@ -9,7 +9,7 @@ public class UIManager : MonoBehaviour
 {
 
     public TMP_Text timeText;
-    public TMP_Text turnText; //TURN BASED
+    //public TMP_Text turnText; //TURN BASED
     public TMP_Text scoreText;
     
     public TMP_Text winScore;
